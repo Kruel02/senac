@@ -41,18 +41,18 @@
             // 
             // btnVoltarSaque
             // 
-            btnVoltarSaque.Location = new Point(659, 395);
+            btnVoltarSaque.Location = new Point(293, 388);
             btnVoltarSaque.Name = "btnVoltarSaque";
             btnVoltarSaque.Size = new Size(75, 23);
             btnVoltarSaque.TabIndex = 21;
-            btnVoltarSaque.Text = "Voltar";
+            btnVoltarSaque.Text = "Fechar";
             btnVoltarSaque.UseVisualStyleBackColor = true;
             btnVoltarSaque.Click += btnVoltarSaque_Click;
             // 
             // lblMensagem
             // 
             lblMensagem.AutoSize = true;
-            lblMensagem.Location = new Point(543, 290);
+            lblMensagem.Location = new Point(177, 283);
             lblMensagem.Name = "lblMensagem";
             lblMensagem.Size = new Size(77, 15);
             lblMensagem.TabIndex = 20;
@@ -60,16 +60,17 @@
             // 
             // btnConfirmacao
             // 
-            btnConfirmacao.Location = new Point(543, 249);
+            btnConfirmacao.Location = new Point(177, 242);
             btnConfirmacao.Name = "btnConfirmacao";
             btnConfirmacao.Size = new Size(191, 23);
             btnConfirmacao.TabIndex = 19;
             btnConfirmacao.Text = "Confirmar Saque  ";
             btnConfirmacao.UseVisualStyleBackColor = true;
+            btnConfirmacao.Click += btnConfirmacao_Click;
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(543, 199);
+            txtSenha.Location = new Point(177, 192);
             txtSenha.Name = "txtSenha";
             txtSenha.PlaceholderText = "Senha:****";
             txtSenha.Size = new Size(191, 23);
@@ -77,16 +78,17 @@
             // 
             // txtValorDeposito
             // 
-            txtValorDeposito.Location = new Point(543, 157);
+            txtValorDeposito.Location = new Point(177, 150);
             txtValorDeposito.Name = "txtValorDeposito";
             txtValorDeposito.PlaceholderText = "00,00";
             txtValorDeposito.Size = new Size(191, 23);
             txtValorDeposito.TabIndex = 17;
+            txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
             // 
             // lblinsiraValor
             // 
             lblinsiraValor.AutoSize = true;
-            lblinsiraValor.Location = new Point(543, 102);
+            lblinsiraValor.Location = new Point(177, 95);
             lblinsiraValor.Name = "lblinsiraValor";
             lblinsiraValor.Size = new Size(169, 15);
             lblinsiraValor.TabIndex = 16;
@@ -109,11 +111,12 @@
             lblSaldo.Size = new Size(69, 15);
             lblSaldo.TabIndex = 14;
             lblSaldo.Text = "Saldo: 50.00";
+            lblSaldo.Click += lblSaldo_Click;
             // 
             // lblValorSaque
             // 
             lblValorSaque.AutoSize = true;
-            lblValorSaque.Location = new Point(543, 32);
+            lblValorSaque.Location = new Point(177, 25);
             lblValorSaque.Name = "lblValorSaque";
             lblValorSaque.Size = new Size(74, 15);
             lblValorSaque.TabIndex = 13;
@@ -123,7 +126,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(405, 450);
             Controls.Add(btnVoltarSaque);
             Controls.Add(lblMensagem);
             Controls.Add(btnConfirmacao);
@@ -135,6 +138,7 @@
             Controls.Add(lblValorSaque);
             Name = "TelaSaque";
             Text = "TelaSaque";
+            Load += TelaSaque_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -16,13 +16,23 @@ namespace pjrAtiv
     {
         public TelaDeposito()
         {
-
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            
             InitializeComponent();
         }
         private string _laststring;
 
         private void TelaDeposito_Load(object sender, EventArgs e)
         {
+            foreach (var item in UsuarioLogado.Contas)
+            {
+
+                lblSaldo.Text = item.Saldo.ToString();
+                break;
+
+            }
 
         }
 
@@ -66,14 +76,48 @@ namespace pjrAtiv
             cmd.CommandType = CommandType.StoredProcedure;
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = "workstation id=JukabankMOISES.mssql.somee.com;packet size=4096;user id=Moises90_SQLLogin_1;pwd=tjnwoa1ips;data source=JukabankMOISES.mssql.somee.com;persist security info=False;initial catalog=JukabankMOISES";
-
+            
             cmd.Connection = conexao;
             conexao.Open();
 
+            
             //limpando parametros
             cmd.Parameters.Clear();
+
+
             cmd.Parameters.AddWithValue("ContaId", UsuarioLogado.ContaLogada);
-            cmd.Parameters.AddWithValue("SaldoConta", txtValorDeposito.Text);
+           
+
+           
+
+            if(txtSenha.Text != UsuarioLogado.Senha) 
+            {
+
+                MessageBox.Show("Senha incorreta");
+            
+            }
+            else
+            {
+                foreach (var item in UsuarioLogado.Contas)
+                {
+
+                    cmd.Parameters.AddWithValue("SaldoConta", item.Depositar(Convert.ToDecimal(txtValorDeposito.Text))); 
+                    MessageBox.Show(item.Saldo.ToString());
+                    lblSaldo.Text = item.Saldo.ToString();
+                    break;
+
+                }
+
+                Int32 rowsAffected = cmd.ExecuteNonQuery();
+                conexao.Close();
+
+
+            }
+           
+           
+
+
+
         }
 
         private void btnVoltarDeposito_Click(object sender, EventArgs e)

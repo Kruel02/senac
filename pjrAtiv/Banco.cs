@@ -28,6 +28,7 @@ namespace pjrAtiv
             this.Height = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height / 2;
             this.Width = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width / 2;
             logOutToolStripMenuItem.Enabled = false;
+            
 
 
 
@@ -113,6 +114,8 @@ namespace pjrAtiv
 
             }
 
+            
+            
 
 
         }
@@ -159,8 +162,9 @@ namespace pjrAtiv
 
             nomeClienteToolStripMenuItem.Enabled = false;
             nomeClienteToolStripMenuItem.Visible = false;
-
-
+            iDContaToolStripMenuItem.Visible = false;
+            iDContaToolStripMenuItem.Enabled = false;
+            cadastroToolStripMenuItem.Enabled = true;
 
 
         }
@@ -261,7 +265,7 @@ namespace pjrAtiv
         private void saqueToolStripMenuItem_Click(object sender, EventArgs e)
 
         {
-
+            TelaSaque Saque = new TelaSaque();
 
             if (Application.OpenForms.OfType<TelaSaque>().Any())
             {
@@ -270,11 +274,29 @@ namespace pjrAtiv
 
 
             }
+            Saque.MdiParent = this;
+            Saque.Show();
 
         }
 
         private void operaçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (UsuarioLogado.ContaLogada == 0)
+            {
+                depositoToolStripMenuItem.Enabled = false;
+                saqueToolStripMenuItem.Enabled = false;
+                transferenciaToolStripMenuItem.Enabled = false;
+                alterarContaToolStripMenuItem.Enabled = false;
+
+
+            }
+            else if (UsuarioLogado.ContaLogada > 0 && operaçõesToolStripMenuItem.Pressed)
+            {
+                depositoToolStripMenuItem.Enabled = true;
+                saqueToolStripMenuItem.Enabled = true;
+                transferenciaToolStripMenuItem.Enabled = true;
+                alterarContaToolStripMenuItem.Enabled = true;
+            }
 
         }
 
@@ -285,10 +307,27 @@ namespace pjrAtiv
 
         private void alterarContaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AlterarConta ContaAtt = new AlterarConta();
+           
+            
+                if (UsuarioLogado.ContaLogada == 0)
+                {
+                    MessageBox.Show("Nõa há conta");
 
-            ContaAtt.MdiParent = this;
-            ContaAtt.Show();
+                }
+                else
+                {
+                    AlterarConta ContaAtt = new AlterarConta();
+
+                    ContaAtt.MdiParent = this;
+                    ContaAtt.Show();
+
+                }
+                
+
+
+            
+
+           
         }
 
         private void iDContaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -313,7 +352,13 @@ namespace pjrAtiv
 
             }
             iDContaToolStripMenuItem.Text = iDContaToolStripMenuItem.DropDown.Items[0].Text;
+
+            if (logOutToolStripMenuItem.Pressed && iDContaToolStripMenuItem.Text != null)    
+            {
+                iDContaToolStripMenuItem.Text = string.Empty;
             
+            
+            }
 
         }
 

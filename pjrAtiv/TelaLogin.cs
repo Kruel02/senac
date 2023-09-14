@@ -88,17 +88,14 @@ namespace pjrAtiv
                 UsuarioLogado.DataCriacao = leitor.GetDateTime(12);
                 UsuarioLogado.UltimoLogin = leitor.GetDateTime(13); 
 
-
-                MessageBox.Show("bem vindo"  + "" + leitor.GetString(1)+ UsuarioLogado.CPF + "Crie uma nova conta");
+                
+                MessageBox.Show("bem vindo"  + "" + leitor.GetString(1)+ UsuarioLogado.CPF + UsuarioLogado.ContaLogada.ToString());
 
                 Application.OpenForms["banco"].MainMenuStrip.Items["operaçõesToolStripMenuItem"].Enabled = true;
                 Application.OpenForms["banco"].MainMenuStrip.Items["nomeClienteToolStripMenuItem"].Visible = true;
                 Application.OpenForms["banco"].MainMenuStrip.Items["nomeClienteToolStripMenuItem"].Text = UsuarioLogado.Nome;
                 
-                CadastrarConta = new CriarConta();
-                CadastrarConta.MdiParent = this.MdiParent;
-                CadastrarConta.Show();
-                this.Close();
+               
 
                 
 
@@ -156,10 +153,11 @@ namespace pjrAtiv
 
 
             //f.loginToolStripMenuItem.Enabled = false;
+            this.Close();
+
             call.MenuStrips("menuStrip1", "loginToolStripMenuItem", false);
             call.MenuStrips("menuStrip1", "logOutToolStripMenuItem", true);
-
-
+            call.MenuStrips("menuStrip1", "cadastroToolStripMenuItem", false);
         }
 
         private void Strip_ItemAdded(object? sender, ToolStripItemEventArgs e)
@@ -198,6 +196,7 @@ namespace pjrAtiv
                                 {
                                     SubMenu.Enabled = false;
                                 }
+                                
                                 
                             }
 

@@ -62,7 +62,16 @@ namespace pjrAtiv.Classes
         
         }
 
-        
-        
+        public decimal SaldoDinheiro(decimal ValorSaldo)
+        {
+
+            this.Saldo -= ValorSaldo;
+            return this.Saldo;
+
+
+
+        }
+
+
     }
 }
