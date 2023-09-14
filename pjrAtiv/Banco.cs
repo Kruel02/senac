@@ -309,7 +309,8 @@ namespace pjrAtiv
             {
 
                 iDContaToolStripMenuItem.DropDownItems.Add(item.IdConta.ToString());
-                break;
+
+
             }
             iDContaToolStripMenuItem.Text = iDContaToolStripMenuItem.DropDown.Items[0].Text;
             
@@ -318,7 +319,7 @@ namespace pjrAtiv
 
         private void AlterarConta(object sender, ToolStripItemClickedEventArgs e)
         {
-            
+
         }
     }
 }

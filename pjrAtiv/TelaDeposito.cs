@@ -62,7 +62,7 @@ namespace pjrAtiv
         private void button1_Click(object sender, EventArgs e)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "AtualizarConta";
+            cmd.CommandText = "DepositoSaldo";
             cmd.CommandType = CommandType.StoredProcedure;
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = "workstation id=JukabankMOISES.mssql.somee.com;packet size=4096;user id=Moises90_SQLLogin_1;pwd=tjnwoa1ips;data source=JukabankMOISES.mssql.somee.com;persist security info=False;initial catalog=JukabankMOISES";
@@ -72,8 +72,8 @@ namespace pjrAtiv
 
             //limpando parametros
             cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("ContaId", UsuarioLogado.ContaLogada);
             cmd.Parameters.AddWithValue("SaldoConta", txtValorDeposito.Text);
-            cmd.Parameters.AddWithValue("TipoConta", UsuarioLogado.ContaLogada);
         }
 
         private void btnVoltarDeposito_Click(object sender, EventArgs e)

@@ -88,3 +88,13 @@ exec BuscarContaporIDCliente 2;
 
 select * from Cliente;
 select * from conta;
+
+create procedure DepositoSaldo
+@ContaId int,
+@SaldoConta decimal(10,2)
+as
+begin
+update Conta
+set conta.SaldoConta = @SaldoConta
+where conta.IDConta = @ContaId
+end;
