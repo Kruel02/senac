@@ -87,6 +87,7 @@
             TxtRG.PlaceholderText = "RG";
             TxtRG.Size = new Size(100, 23);
             TxtRG.TabIndex = 5;
+            TxtRG.TextChanged += TxtRG_TextChanged;
             // 
             // TxtCPF
             // 
@@ -95,6 +96,7 @@
             TxtCPF.PlaceholderText = "CPF";
             TxtCPF.Size = new Size(100, 23);
             TxtCPF.TabIndex = 6;
+            TxtCPF.TextChanged += TxtCPF_TextChanged;
             // 
             // CBEstado
             // 

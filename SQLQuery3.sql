@@ -19,6 +19,7 @@ as
 insert into conta (IdCliente, TipoConta, SaldoConta, StatusConta )
 values (@idCorrentista, @TipoConta, @saldo, @statusConta)
 select @@identity as 'ultimoID'
+end;
 
 exec pi_Conta_48 4, 'Correntista', 1200, 'ativa';
 
@@ -51,3 +52,39 @@ ClienteCPF= @cpf
 where idCliente  = @ClienteID
 End
 
+select * from conta;
+
+create procedure AtualizarConta
+@contaID int,
+@TipoConta varchar(50),
+@SaldoConta Decimal(10,2)
+as
+begin
+update conta
+set conta.IDCliente = @contaID,
+conta.TipoConta = @TipoConta,
+conta.SaldoConta = @SaldoConta
+where conta.IDConta = @contaID
+End;
+
+create procedure pu_EncerrarConta
+@ContaID int,
+@Encerrar varchar(8)
+as
+begin
+update Conta
+set conta.DataEncerramento = @Encerrar
+where conta.IDConta = @ContaID
+End;
+
+Create Procedure BuscarContaporIDCliente
+@IdCliente int
+AS
+Select * from conta
+where conta.IDCliente = @IdCliente
+End;
+
+exec BuscarContaporIDCliente 2;
+
+select * from Cliente;
+select * from conta;

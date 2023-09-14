@@ -36,7 +36,7 @@ namespace pjrAtiv
                 foreach (ComboBox Combo in this.Controls.OfType<ComboBox>())
                 {
                     Combo.Enabled = false;
-                    
+
                 }
             }
             else
@@ -50,7 +50,7 @@ namespace pjrAtiv
                 TxtCPF.Text = UsuarioLogado.CPF;
                 CBEstado.Text = UsuarioLogado.EstadoCliente;
                 CBCivil.Text = UsuarioLogado.EstadoCivil;
-                
+
             }
 
 
@@ -92,7 +92,7 @@ namespace pjrAtiv
             {
                 MessageBox.Show("Usuario atualizado");
                 conn.Close();
-                
+
 
 
 
@@ -102,8 +102,28 @@ namespace pjrAtiv
 
         private void FecharJanelaAtualizar(object sender, FormClosingEventArgs e)
         {
-            
 
+
+        }
+
+        private void TxtRG_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCPF_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TxtCPF.Text, out int Val) == false)
+            {
+                string input = TxtCPF.Text;
+
+                string numbersOnly = new string(input.Where(char.IsDigit).ToArray());
+
+                TxtCPF.Text = numbersOnly;
+
+                TxtCPF.SelectionStart = TxtCPF.Text.Length;
+
+            }
         }
     }
 }

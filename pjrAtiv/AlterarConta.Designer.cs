@@ -41,6 +41,7 @@
             CBContas.Size = new Size(196, 23);
             CBContas.TabIndex = 0;
             CBContas.Text = "Contas";
+            CBContas.SelectedIndexChanged += CBContas_SelectedIndexChanged;
             // 
             // TxtSenha
             // 
@@ -58,6 +59,7 @@
             BtnAtualizar.TabIndex = 2;
             BtnAtualizar.Text = "Atualizar";
             BtnAtualizar.UseVisualStyleBackColor = true;
+            BtnAtualizar.Click += BtnAtualizar_Click;
             // 
             // AlterarConta
             // 

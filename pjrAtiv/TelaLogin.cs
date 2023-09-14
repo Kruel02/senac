@@ -90,11 +90,17 @@ namespace pjrAtiv
 
 
                 MessageBox.Show("bem vindo"  + "" + leitor.GetString(1)+ UsuarioLogado.CPF + "Crie uma nova conta");
+
+                Application.OpenForms["banco"].MainMenuStrip.Items["operaçõesToolStripMenuItem"].Enabled = true;
+                Application.OpenForms["banco"].MainMenuStrip.Items["nomeClienteToolStripMenuItem"].Visible = true;
+                Application.OpenForms["banco"].MainMenuStrip.Items["nomeClienteToolStripMenuItem"].Text = UsuarioLogado.Nome;
                 
                 CadastrarConta = new CriarConta();
                 CadastrarConta.MdiParent = this.MdiParent;
                 CadastrarConta.Show();
                 this.Close();
+
+                
 
 
             }
@@ -104,19 +110,50 @@ namespace pjrAtiv
             }
             conexao.Close();
             leitor.Close();
+
+            cmd.CommandText = "BuscarContaporIDCliente";
+            cmd.CommandType = CommandType.StoredProcedure;
+            conexao.Open();
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("IdCliente", UsuarioLogado.Id);
+            leitor = cmd.ExecuteReader();
             
+            if(leitor.HasRows) 
+            {
+                while (leitor.Read()) 
+                
+                {
+                    Conta conta1 = new Conta(leitor.GetInt32(0), leitor.GetInt32(1), leitor.GetDecimal(3),leitor.GetString(2));
+                    UsuarioLogado.Contas.Add(conta1);
+                  
+                
+                
+                
+                }
+                UsuarioLogado.ContaLogada = UsuarioLogado.Contas[0].IdConta;
+                Application.OpenForms["banco"].MainMenuStrip.Items[3].Visible = true;
+                Application.OpenForms["banco"].MainMenuStrip.Items[3].Text = UsuarioLogado.ContaLogada.ToString();
+                Application.OpenForms["banco"].MainMenuStrip.Items[3].Enabled = true;   
 
 
-           
-          
-           
+
+            }
+            conexao.Close();
+            leitor.Close ();
 
 
-            
-            
 
-                    //verificar se há linhas retornadas do leitor
-                   
+
+
+
+
+
+
+
+
+            //verificar se há linhas retornadas do leitor
+
 
             //f.loginToolStripMenuItem.Enabled = false;
             call.MenuStrips("menuStrip1", "loginToolStripMenuItem", false);

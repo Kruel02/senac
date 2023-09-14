@@ -19,6 +19,7 @@ namespace pjrAtiv.Classes
         public decimal Saldo { get; set; }
         public string? Status { get; set; }
         public double Limite { get; set; }
+        public string Tipo { get; set; }    
 
         
         public DateTime DataEncerramento { get; set; }
@@ -29,12 +30,12 @@ namespace pjrAtiv.Classes
             
         
         }
-        public Conta(int Idconta, int Idcliente, decimal saldo, string status) 
+        public Conta(int Idconta, int Idcliente, decimal saldo, string Tipo) 
         {
             this.IdConta = Idconta;
             this.IdCliente = Idcliente;
             this.Saldo = saldo;
-            this.Status = status;
+            this.Tipo = Tipo;   
         
         
         

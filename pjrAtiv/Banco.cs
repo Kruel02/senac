@@ -97,6 +97,24 @@ namespace pjrAtiv
             {
                 operaçõesToolStripMenuItem.Enabled = true;
             }
+
+            if (UsuarioLogado.Id == 0)
+            {
+                nomeClienteToolStripMenuItem.Enabled = false;
+                nomeClienteToolStripMenuItem.Visible = false;
+            }
+
+
+
+            if (UsuarioLogado.ContaLogada == 0)
+            {
+                iDContaToolStripMenuItem.Enabled = false;
+                iDContaToolStripMenuItem.Visible = false;
+
+            }
+
+
+
         }
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -137,6 +155,12 @@ namespace pjrAtiv
             }
             conexao.Close();
             UsuarioLogado.Deslogar();
+            operaçõesToolStripMenuItem.Enabled = false;
+
+            nomeClienteToolStripMenuItem.Enabled = false;
+            nomeClienteToolStripMenuItem.Visible = false;
+
+
 
 
         }
@@ -221,6 +245,7 @@ namespace pjrAtiv
 
         private void depositoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            TelaDeposito Deposito = new TelaDeposito();
             if (Application.OpenForms.OfType<TelaDeposito>().Any())
             {
 
@@ -228,6 +253,9 @@ namespace pjrAtiv
 
 
             }
+            Deposito.MdiParent = this;
+            Deposito.Show();
+
         }
 
         private void saqueToolStripMenuItem_Click(object sender, EventArgs e)
@@ -246,6 +274,49 @@ namespace pjrAtiv
         }
 
         private void operaçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nomeClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void alterarContaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlterarConta ContaAtt = new AlterarConta();
+
+            ContaAtt.MdiParent = this;
+            ContaAtt.Show();
+        }
+
+        private void iDContaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ContasAbertas(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void ContaTeste(object sender, EventArgs e)
+        {
+            foreach (var item in UsuarioLogado.Contas)
+            {
+
+                iDContaToolStripMenuItem.DropDownItems.Add(item.IdConta.ToString());
+                break;
+            }
+            iDContaToolStripMenuItem.Text = iDContaToolStripMenuItem.DropDown.Items[0].Text;
+            
+
+        }
+
+        private void AlterarConta(object sender, ToolStripItemClickedEventArgs e)
         {
             
         }

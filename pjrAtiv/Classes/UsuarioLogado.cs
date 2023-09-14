@@ -25,6 +25,7 @@ namespace pjrAtiv.Classes
         public static string Senha { get; set; }
         public static DateTime DataCriacao { get; set; }
         public static DateTime UltimoLogin { get; set; }
+        public static int ContaLogada { get; set; }
 
 
         public static List<Conta> Contas = new List<Conta>();

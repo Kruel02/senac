@@ -86,7 +86,7 @@ namespace pjrAtiv
 
                     conexao.Open();
                     cliente.IdConta = Convert.ToInt32(cmd.ExecuteScalar());
-
+                    
                     MessageBox.Show(cliente.IdConta.ToString());
 
 

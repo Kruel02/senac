@@ -15,6 +15,7 @@ using DAL;
 using BLL;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Diagnostics.Eventing.Reader;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace pjrAtiv
 {
@@ -27,7 +28,7 @@ namespace pjrAtiv
         {
             this.MinimizeBox = false;
             this.MaximizeBox = false;
-            
+
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitializeComponent();
 
@@ -61,8 +62,8 @@ namespace pjrAtiv
 
             MethodCall Metodo = new MethodCall();
             TxtNome.Text = str;
-            TxtEndereco.Text = rng.Next(1,9999).ToString();
-            TxtCidade.Text = rng.Next(0,555555).ToString();
+            TxtEndereco.Text = rng.Next(1, 9999).ToString();
+            TxtCidade.Text = rng.Next(0, 555555).ToString();
             CbEstado.Text = "São Paulo";
             TxtCPF.Text = rng.Next(55555, 999999999).ToString();
             TxtRG.Text = rng.Next(0, 99999999).ToString();
@@ -96,7 +97,7 @@ namespace pjrAtiv
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
 
-
+            
 
 
             foreach (TextBox box in this.Controls.OfType<TextBox>())
@@ -145,7 +146,7 @@ namespace pjrAtiv
                         MessageBox.Show("Usuario Cadastrado");
                         conn.Close();
                         MessageBox.Show("Cadastre uma conta");
-                        
+
 
 
                     }
@@ -156,7 +157,7 @@ namespace pjrAtiv
 
             }
 
-            
+
 
 
         }
@@ -178,7 +179,31 @@ namespace pjrAtiv
 
         private void TxtTelefone_TextChanged(object sender, EventArgs e)
         {
+            if (int.TryParse(TxtTelefone.Text, out int Val) == false)
+            {
+                string input = TxtTelefone.Text;
 
+                string numbersOnly = new string(input.Where(char.IsDigit).ToArray());
+                TxtTelefone.Text = numbersOnly;
+
+                TxtTelefone.SelectionStart = TxtTelefone.Text.Length;
+
+            }
+
+        }
+
+        private void TxtCPF_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TxtCPF.Text, out int Val) == false)
+            {
+                string input = TxtCPF.Text;
+
+                string numbersOnly = new string(input.Where(char.IsDigit).ToArray());
+                TxtCPF.Text = numbersOnly;
+
+                TxtCPF.SelectionStart = TxtCPF.Text.Length;
+
+            }
         }
     }
 }

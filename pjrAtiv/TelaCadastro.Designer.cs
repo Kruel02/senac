@@ -68,6 +68,7 @@
             TxtCPF.PlaceholderText = "CPF";
             TxtCPF.Size = new Size(125, 23);
             TxtCPF.TabIndex = 2;
+            TxtCPF.TextChanged += TxtCPF_TextChanged;
             // 
             // TxtEndereco
             // 

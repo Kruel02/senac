@@ -40,12 +40,15 @@
             transferenciaToolStripMenuItem = new ToolStripMenuItem();
             saqueToolStripMenuItem = new ToolStripMenuItem();
             alterarDadosToolStripMenuItem = new ToolStripMenuItem();
+            alterarContaToolStripMenuItem = new ToolStripMenuItem();
+            nomeClienteToolStripMenuItem = new ToolStripMenuItem();
+            iDContaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { contaToolStripMenuItem, operaçõesToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { contaToolStripMenuItem, operaçõesToolStripMenuItem, nomeClienteToolStripMenuItem, iDContaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(979, 24);
@@ -89,7 +92,7 @@
             // 
             // operaçõesToolStripMenuItem
             // 
-            operaçõesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { criarContaToolStripMenuItem, depositoToolStripMenuItem, transferenciaToolStripMenuItem, saqueToolStripMenuItem, alterarDadosToolStripMenuItem });
+            operaçõesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { criarContaToolStripMenuItem, depositoToolStripMenuItem, transferenciaToolStripMenuItem, saqueToolStripMenuItem, alterarDadosToolStripMenuItem, alterarContaToolStripMenuItem });
             operaçõesToolStripMenuItem.Name = "operaçõesToolStripMenuItem";
             operaçõesToolStripMenuItem.Size = new Size(75, 20);
             operaçõesToolStripMenuItem.Text = "Operações";
@@ -98,36 +101,60 @@
             // criarContaToolStripMenuItem
             // 
             criarContaToolStripMenuItem.Name = "criarContaToolStripMenuItem";
-            criarContaToolStripMenuItem.Size = new Size(180, 22);
+            criarContaToolStripMenuItem.Size = new Size(145, 22);
             criarContaToolStripMenuItem.Text = "Criar Conta";
             criarContaToolStripMenuItem.Click += criarContaToolStripMenuItem_Click;
             // 
             // depositoToolStripMenuItem
             // 
             depositoToolStripMenuItem.Name = "depositoToolStripMenuItem";
-            depositoToolStripMenuItem.Size = new Size(180, 22);
+            depositoToolStripMenuItem.Size = new Size(145, 22);
             depositoToolStripMenuItem.Text = "Deposito";
             depositoToolStripMenuItem.Click += depositoToolStripMenuItem_Click;
             // 
             // transferenciaToolStripMenuItem
             // 
             transferenciaToolStripMenuItem.Name = "transferenciaToolStripMenuItem";
-            transferenciaToolStripMenuItem.Size = new Size(180, 22);
+            transferenciaToolStripMenuItem.Size = new Size(145, 22);
             transferenciaToolStripMenuItem.Text = "Transferencia";
             // 
             // saqueToolStripMenuItem
             // 
             saqueToolStripMenuItem.Name = "saqueToolStripMenuItem";
-            saqueToolStripMenuItem.Size = new Size(180, 22);
+            saqueToolStripMenuItem.Size = new Size(145, 22);
             saqueToolStripMenuItem.Text = "Saque";
             saqueToolStripMenuItem.Click += saqueToolStripMenuItem_Click;
             // 
             // alterarDadosToolStripMenuItem
             // 
             alterarDadosToolStripMenuItem.Name = "alterarDadosToolStripMenuItem";
-            alterarDadosToolStripMenuItem.Size = new Size(180, 22);
+            alterarDadosToolStripMenuItem.Size = new Size(145, 22);
             alterarDadosToolStripMenuItem.Text = "Alterar Dados";
             alterarDadosToolStripMenuItem.Click += alterarDadosToolStripMenuItem_Click;
+            // 
+            // alterarContaToolStripMenuItem
+            // 
+            alterarContaToolStripMenuItem.Name = "alterarContaToolStripMenuItem";
+            alterarContaToolStripMenuItem.Size = new Size(145, 22);
+            alterarContaToolStripMenuItem.Text = "Alterar Conta";
+            alterarContaToolStripMenuItem.Click += alterarContaToolStripMenuItem_Click;
+            // 
+            // nomeClienteToolStripMenuItem
+            // 
+            nomeClienteToolStripMenuItem.Name = "nomeClienteToolStripMenuItem";
+            nomeClienteToolStripMenuItem.Size = new Size(89, 20);
+            nomeClienteToolStripMenuItem.Text = "NomeCliente";
+            nomeClienteToolStripMenuItem.Click += nomeClienteToolStripMenuItem_Click;
+            // 
+            // iDContaToolStripMenuItem
+            // 
+            iDContaToolStripMenuItem.Name = "iDContaToolStripMenuItem";
+            iDContaToolStripMenuItem.Size = new Size(62, 20);
+            iDContaToolStripMenuItem.Text = "IDConta";
+            iDContaToolStripMenuItem.DropDownOpening += ContaTeste;
+            iDContaToolStripMenuItem.DropDownOpened += ContasAbertas;
+            iDContaToolStripMenuItem.DropDownItemClicked += AlterarConta;
+            iDContaToolStripMenuItem.Click += iDContaToolStripMenuItem_Click;
             // 
             // Banco
             // 
@@ -161,5 +188,8 @@
         private ToolStripMenuItem fecharToolStripMenuItem;
         private ToolStripMenuItem criarContaToolStripMenuItem;
         private ToolStripMenuItem alterarDadosToolStripMenuItem;
+        private ToolStripMenuItem nomeClienteToolStripMenuItem;
+        private ToolStripMenuItem iDContaToolStripMenuItem;
+        private ToolStripMenuItem alterarContaToolStripMenuItem;
     }
 }

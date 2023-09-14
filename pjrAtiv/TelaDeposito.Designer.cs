@@ -62,7 +62,7 @@
             // lblValorDeposito
             // 
             lblValorDeposito.AutoSize = true;
-            lblValorDeposito.Location = new Point(498, 19);
+            lblValorDeposito.Location = new Point(157, 9);
             lblValorDeposito.Name = "lblValorDeposito";
             lblValorDeposito.Size = new Size(89, 15);
             lblValorDeposito.TabIndex = 4;
@@ -72,7 +72,7 @@
             // lblinsiraValor
             // 
             lblinsiraValor.AutoSize = true;
-            lblinsiraValor.Location = new Point(498, 89);
+            lblinsiraValor.Location = new Point(157, 79);
             lblinsiraValor.Name = "lblinsiraValor";
             lblinsiraValor.Size = new Size(191, 15);
             lblinsiraValor.TabIndex = 7;
@@ -80,15 +80,16 @@
             // 
             // txtValorDeposito
             // 
-            txtValorDeposito.Location = new Point(498, 144);
+            txtValorDeposito.Location = new Point(157, 134);
             txtValorDeposito.Name = "txtValorDeposito";
             txtValorDeposito.PlaceholderText = "00,00";
             txtValorDeposito.Size = new Size(191, 23);
             txtValorDeposito.TabIndex = 8;
+            txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(498, 186);
+            txtSenha.Location = new Point(157, 176);
             txtSenha.Name = "txtSenha";
             txtSenha.PlaceholderText = "Senha:****";
             txtSenha.Size = new Size(191, 23);
@@ -96,7 +97,7 @@
             // 
             // btnConfirmacao
             // 
-            btnConfirmacao.Location = new Point(498, 236);
+            btnConfirmacao.Location = new Point(157, 226);
             btnConfirmacao.Name = "btnConfirmacao";
             btnConfirmacao.Size = new Size(191, 23);
             btnConfirmacao.TabIndex = 10;
@@ -107,7 +108,7 @@
             // lblMensagem
             // 
             lblMensagem.AutoSize = true;
-            lblMensagem.Location = new Point(498, 277);
+            lblMensagem.Location = new Point(157, 267);
             lblMensagem.Name = "lblMensagem";
             lblMensagem.Size = new Size(92, 15);
             lblMensagem.TabIndex = 11;
@@ -115,11 +116,11 @@
             // 
             // btnVoltarDeposito
             // 
-            btnVoltarDeposito.Location = new Point(614, 382);
+            btnVoltarDeposito.Location = new Point(273, 316);
             btnVoltarDeposito.Name = "btnVoltarDeposito";
             btnVoltarDeposito.Size = new Size(75, 23);
             btnVoltarDeposito.TabIndex = 12;
-            btnVoltarDeposito.Text = "Voltar";
+            btnVoltarDeposito.Text = "Fechar";
             btnVoltarDeposito.UseVisualStyleBackColor = true;
             btnVoltarDeposito.Click += btnVoltarDeposito_Click;
             // 
@@ -127,7 +128,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(376, 370);
             Controls.Add(btnVoltarDeposito);
             Controls.Add(lblMensagem);
             Controls.Add(btnConfirmacao);
