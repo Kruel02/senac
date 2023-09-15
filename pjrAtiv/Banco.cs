@@ -166,6 +166,7 @@ namespace pjrAtiv
             iDContaToolStripMenuItem.Enabled = false;
             cadastroToolStripMenuItem.Enabled = true;
 
+           
 
         }
 
@@ -188,7 +189,7 @@ namespace pjrAtiv
 
             Int32 rowsAffected = cmd.ExecuteNonQuery();
             conexao.Close();
-
+            UsuarioLogado.Deslogar();
             Application.Exit();
         }
 
@@ -208,7 +209,7 @@ namespace pjrAtiv
             cmd.Parameters.AddWithValue("idCliente", UsuarioLogado.Id);
 
 
-
+            UsuarioLogado.Deslogar();
             Int32 rowsAffected = cmd.ExecuteNonQuery();
             conexao.Close();
             Application.Exit();
@@ -344,19 +345,25 @@ namespace pjrAtiv
 
         private void ContaTeste(object sender, EventArgs e)
         {
-            foreach (var item in UsuarioLogado.Contas)
+            iDContaToolStripMenuItem.Text = string.Empty;
+
+            if (iDContaToolStripMenuItem.Text == string.Empty) 
             {
+                foreach (var item in UsuarioLogado.Contas)
+                {
 
-                iDContaToolStripMenuItem.DropDownItems.Add(item.IdConta.ToString());
+                    iDContaToolStripMenuItem.DropDownItems.Add(item.IdConta.ToString());
 
 
+                }
+                iDContaToolStripMenuItem.Text = iDContaToolStripMenuItem.DropDown.Items[0].Text;
+                
             }
-            iDContaToolStripMenuItem.Text = iDContaToolStripMenuItem.DropDown.Items[0].Text;
+                        
 
             if (logOutToolStripMenuItem.Pressed && iDContaToolStripMenuItem.Text != null)    
             {
-                iDContaToolStripMenuItem.Text = string.Empty;
-            
+                
             
             }
 

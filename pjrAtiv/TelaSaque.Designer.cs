@@ -37,6 +37,7 @@
             lblSaque = new Label();
             lblSaldo = new Label();
             lblValorSaque = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // btnVoltarSaque
@@ -57,6 +58,7 @@
             lblMensagem.Size = new Size(77, 15);
             lblMensagem.TabIndex = 20;
             lblMensagem.Text = "Saque  Feito !";
+            lblMensagem.Visible = false;
             // 
             // btnConfirmacao
             // 
@@ -72,15 +74,14 @@
             // 
             txtSenha.Location = new Point(177, 192);
             txtSenha.Name = "txtSenha";
-            txtSenha.PlaceholderText = "Senha:****";
             txtSenha.Size = new Size(191, 23);
             txtSenha.TabIndex = 18;
+            txtSenha.UseSystemPasswordChar = true;
             // 
             // txtValorDeposito
             // 
             txtValorDeposito.Location = new Point(177, 150);
             txtValorDeposito.Name = "txtValorDeposito";
-            txtValorDeposito.PlaceholderText = "00,00";
             txtValorDeposito.Size = new Size(191, 23);
             txtValorDeposito.TabIndex = 17;
             txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
@@ -116,17 +117,27 @@
             // lblValorSaque
             // 
             lblValorSaque.AutoSize = true;
-            lblValorSaque.Location = new Point(177, 25);
+            lblValorSaque.Location = new Point(177, 132);
             lblValorSaque.Name = "lblValorSaque";
             lblValorSaque.Size = new Size(74, 15);
             lblValorSaque.TabIndex = 13;
             lblValorSaque.Text = "Valor Saque :";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(177, 176);
+            label1.Name = "label1";
+            label1.Size = new Size(39, 15);
+            label1.TabIndex = 22;
+            label1.Text = "Senha";
             // 
             // TelaSaque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(405, 450);
+            Controls.Add(label1);
             Controls.Add(btnVoltarSaque);
             Controls.Add(lblMensagem);
             Controls.Add(btnConfirmacao);
@@ -154,5 +165,6 @@
         private Label lblSaque;
         private Label lblSaldo;
         private Label lblValorSaque;
+        private Label label1;
     }
 }

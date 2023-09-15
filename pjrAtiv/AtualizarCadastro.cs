@@ -14,6 +14,7 @@ namespace pjrAtiv
 {
     public partial class AtualizarCadastro : Form
     {
+        MethodCall metodo;
         public AtualizarCadastro()
         {
             this.MinimizeBox = false;
@@ -52,7 +53,9 @@ namespace pjrAtiv
                 CBCivil.Text = UsuarioLogado.EstadoCivil;
 
             }
-
+            metodo = new MethodCall();
+            metodo.Controls = this.Controls;
+            metodo.limparPlaceHolder();
 
 
         }
@@ -122,8 +125,18 @@ namespace pjrAtiv
                 TxtCPF.Text = numbersOnly;
 
                 TxtCPF.SelectionStart = TxtCPF.Text.Length;
-
+                
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

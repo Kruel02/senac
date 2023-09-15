@@ -81,7 +81,15 @@ namespace pjrAtiv.Classes
 
 
         }
-
+        public void limparPlaceHolder() 
+        {
+            foreach (TextBox box in Controls.OfType<TextBox>())         
+            {
+                box.PlaceholderText = String.Empty;
+            }
+        
+        
+        }
     }
 
     

@@ -60,7 +60,6 @@ namespace pjrAtiv
                 str = str + letter;
             }
 
-            MethodCall Metodo = new MethodCall();
             TxtNome.Text = str;
             TxtEndereco.Text = rng.Next(1, 9999).ToString();
             TxtCidade.Text = rng.Next(0, 555555).ToString();
@@ -71,7 +70,8 @@ namespace pjrAtiv
             CbEstadoCivil.Text = "Solteiro";
             TxtTelefone.Text = rng.Next(1111, 99999).ToString();
             TxtEmail.Text = rng.Next(1, 999999999).ToString();
-
+            metodo.Controls = this.Controls;
+            metodo.limparPlaceHolder();
 
 
         }
@@ -97,7 +97,7 @@ namespace pjrAtiv
         private void BtnCadastrar_Click(object sender, EventArgs e)
         {
 
-            
+
 
 
             foreach (TextBox box in this.Controls.OfType<TextBox>())
@@ -189,7 +189,6 @@ namespace pjrAtiv
                 TxtTelefone.SelectionStart = TxtTelefone.Text.Length;
 
             }
-
         }
 
         private void TxtCPF_TextChanged(object sender, EventArgs e)

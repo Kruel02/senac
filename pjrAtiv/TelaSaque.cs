@@ -33,7 +33,7 @@ namespace pjrAtiv
 
         private void lblSaldo_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -106,7 +106,25 @@ namespace pjrAtiv
                 Int32 rowsAffected = cmd.ExecuteNonQuery();
                 conexao.Close();
 
+                if (Application.OpenForms.OfType<TelaSaque>().Any())
+                {
+                    foreach (System.Windows.Forms.Label label in Application.OpenForms["TelaDeposito"].Controls.OfType<System.Windows.Forms.Label>())
+                    {
+                        if (label.Name == "lblSaldo")
+                        {
 
+
+                            label.Text = this.lblSaldo.Text;
+
+
+
+
+                        }
+                    }
+
+
+
+                }
             }
 
         }

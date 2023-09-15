@@ -24,7 +24,7 @@ namespace pjrAtiv
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitializeComponent();
-            
+
             CBTipoConta.Text = "Correntista";
             TxtSalario.Text = 10000.ToString();
 
@@ -86,7 +86,7 @@ namespace pjrAtiv
 
                     conexao.Open();
                     cliente.IdConta = Convert.ToInt32(cmd.ExecuteScalar());
-                    
+
                     MessageBox.Show(cliente.IdConta.ToString());
 
 
@@ -120,6 +120,11 @@ namespace pjrAtiv
         }
 
         private void TxtSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

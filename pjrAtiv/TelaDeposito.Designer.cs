@@ -37,6 +37,7 @@
             btnConfirmacao = new Button();
             lblMensagem = new Label();
             btnVoltarDeposito = new Button();
+            lblValorSaque = new Label();
             SuspendLayout();
             // 
             // lblDeposito
@@ -62,11 +63,12 @@
             // lblValorDeposito
             // 
             lblValorDeposito.AutoSize = true;
-            lblValorDeposito.Location = new Point(157, 9);
+            lblValorDeposito.Location = new Point(157, 116);
             lblValorDeposito.Name = "lblValorDeposito";
             lblValorDeposito.Size = new Size(89, 15);
             lblValorDeposito.TabIndex = 4;
             lblValorDeposito.Text = "Valor Depósito :";
+            lblValorDeposito.Visible = false;
             lblValorDeposito.Click += lblNomeCliente_Click;
             // 
             // lblinsiraValor
@@ -82,7 +84,6 @@
             // 
             txtValorDeposito.Location = new Point(157, 134);
             txtValorDeposito.Name = "txtValorDeposito";
-            txtValorDeposito.PlaceholderText = "00,00";
             txtValorDeposito.Size = new Size(191, 23);
             txtValorDeposito.TabIndex = 8;
             txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
@@ -91,9 +92,9 @@
             // 
             txtSenha.Location = new Point(157, 176);
             txtSenha.Name = "txtSenha";
-            txtSenha.PlaceholderText = "Senha:****";
             txtSenha.Size = new Size(191, 23);
             txtSenha.TabIndex = 9;
+            txtSenha.UseSystemPasswordChar = true;
             // 
             // btnConfirmacao
             // 
@@ -113,6 +114,7 @@
             lblMensagem.Size = new Size(92, 15);
             lblMensagem.TabIndex = 11;
             lblMensagem.Text = "Depósito  Feito !";
+            lblMensagem.Visible = false;
             // 
             // btnVoltarDeposito
             // 
@@ -124,11 +126,21 @@
             btnVoltarDeposito.UseVisualStyleBackColor = true;
             btnVoltarDeposito.Click += btnVoltarDeposito_Click;
             // 
+            // lblValorSaque
+            // 
+            lblValorSaque.AutoSize = true;
+            lblValorSaque.Location = new Point(157, 160);
+            lblValorSaque.Name = "lblValorSaque";
+            lblValorSaque.Size = new Size(39, 15);
+            lblValorSaque.TabIndex = 14;
+            lblValorSaque.Text = "Senha";
+            // 
             // TelaDeposito
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(376, 370);
+            Controls.Add(lblValorSaque);
             Controls.Add(btnVoltarDeposito);
             Controls.Add(lblMensagem);
             Controls.Add(btnConfirmacao);
@@ -155,5 +167,6 @@
         private Button btnConfirmacao;
         private Label lblMensagem;
         private Button btnVoltarDeposito;
+        private Label lblValorSaque;
     }
 }

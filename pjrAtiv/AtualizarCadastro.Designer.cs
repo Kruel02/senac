@@ -38,6 +38,15 @@
             CBEstado = new ComboBox();
             CBCivil = new ComboBox();
             BtnAtualizar = new Button();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            LblNome = new Label();
             SuspendLayout();
             // 
             // TxtNome
@@ -126,11 +135,103 @@
             BtnAtualizar.UseVisualStyleBackColor = true;
             BtnAtualizar.Click += BtnAtualizar_Click;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(20, 254);
+            label9.Name = "label9";
+            label9.Size = new Size(36, 15);
+            label9.TabIndex = 34;
+            label9.Text = "Email";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(21, 201);
+            label8.Name = "label8";
+            label8.Size = new Size(42, 15);
+            label8.TabIndex = 33;
+            label8.Text = "Estado";
+            label8.Click += label8_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(213, 43);
+            label7.Name = "label7";
+            label7.Size = new Size(51, 15);
+            label7.TabIndex = 32;
+            label7.Text = "Telefone";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(19, 149);
+            label6.Name = "label6";
+            label6.Size = new Size(44, 15);
+            label6.TabIndex = 31;
+            label6.Text = "Cidade";
+            label6.Click += label6_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(20, 96);
+            label5.Name = "label5";
+            label5.Size = new Size(56, 15);
+            label5.TabIndex = 30;
+            label5.Text = "Endereço";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(213, 149);
+            label4.Name = "label4";
+            label4.Size = new Size(28, 15);
+            label4.TabIndex = 29;
+            label4.Text = "CPF";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(214, 96);
+            label3.Name = "label3";
+            label3.Size = new Size(22, 15);
+            label3.TabIndex = 28;
+            label3.Text = "RG";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(213, 201);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 15);
+            label2.TabIndex = 27;
+            label2.Text = "Estado Cívil";
+            // 
+            // LblNome
+            // 
+            LblNome.AutoSize = true;
+            LblNome.Location = new Point(21, 43);
+            LblNome.Name = "LblNome";
+            LblNome.Size = new Size(40, 15);
+            LblNome.TabIndex = 25;
+            LblNome.Text = "Nome";
+            // 
             // AtualizarCadastro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(495, 379);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(LblNome);
             Controls.Add(BtnAtualizar);
             Controls.Add(CBCivil);
             Controls.Add(CBEstado);
@@ -161,5 +262,14 @@
         private ComboBox CBEstado;
         private ComboBox CBCivil;
         private Button BtnAtualizar;
+        private Label label9;
+        private Label label8;
+        private Label label7;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label LblNome;
     }
 }
