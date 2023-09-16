@@ -95,7 +95,11 @@ namespace pjrAtiv
                 Application.OpenForms["banco"].MainMenuStrip.Items["nomeClienteToolStripMenuItem"].Visible = true;
                 Application.OpenForms["banco"].MainMenuStrip.Items["nomeClienteToolStripMenuItem"].Text = UsuarioLogado.Nome;
 
+                this.Close();
 
+                call.MenuStrips("menuStrip1", "loginToolStripMenuItem", false);
+                call.MenuStrips("menuStrip1", "logOutToolStripMenuItem", true);
+                call.MenuStrips("menuStrip1", "cadastroToolStripMenuItem", false);
 
 
 
@@ -153,11 +157,7 @@ namespace pjrAtiv
 
 
             //f.loginToolStripMenuItem.Enabled = false;
-            this.Close();
-
-            call.MenuStrips("menuStrip1", "loginToolStripMenuItem", false);
-            call.MenuStrips("menuStrip1", "logOutToolStripMenuItem", true);
-            call.MenuStrips("menuStrip1", "cadastroToolStripMenuItem", false);
+            
         }
 
         private void Strip_ItemAdded(object? sender, ToolStripItemEventArgs e)

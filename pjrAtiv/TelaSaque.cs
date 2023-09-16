@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows;
 
 namespace pjrAtiv
 {
@@ -43,7 +44,7 @@ namespace pjrAtiv
             {
                 string input = txtValorDeposito.Text;
 
-                string numbersOnly = new string(input.Where(char.IsDigit).ToArray());
+                string numbersOnly = new string(input.Where(char.IsDigit).ToArray()); 
 
                 txtValorDeposito.Text = numbersOnly;
 
@@ -56,9 +57,13 @@ namespace pjrAtiv
         {
             foreach (var item in UsuarioLogado.Contas)
             {
+                if (item.IdConta == UsuarioLogado.ContaLogada)
+                {
+                    lblSaldo.Text = item.Saldo.ToString();
+                    break;
 
-                lblSaldo.Text = item.Saldo.ToString();
-                break;
+                }
+
 
             }
 
@@ -66,67 +71,92 @@ namespace pjrAtiv
 
         private void btnConfirmacao_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "DepositoSaldo";
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = "workstation id=JukabankMOISES.mssql.somee.com;packet size=4096;user id=Moises90_SQLLogin_1;pwd=tjnwoa1ips;data source=JukabankMOISES.mssql.somee.com;persist security info=False;initial catalog=JukabankMOISES";
-
-            cmd.Connection = conexao;
-            conexao.Open();
-
-
-            //limpando parametros
-            cmd.Parameters.Clear();
-
-
-            cmd.Parameters.AddWithValue("ContaId", UsuarioLogado.ContaLogada);
-
-
-
-
-            if (txtSenha.Text != UsuarioLogado.Senha)
+            if(txtValorDeposito.Text == string.Empty || txtSenha.Text == string.Empty) 
             {
-
-                MessageBox.Show("Senha incorreta");
-
+                MessageBox.Show("Insira um valor");
+            
             }
             else
             {
-                foreach (var item in UsuarioLogado.Contas)
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "DepositoSaldo";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlConnection conexao = new SqlConnection();
+                conexao.ConnectionString = "workstation id=JukabankMOISES.mssql.somee.com;packet size=4096;user id=Moises90_SQLLogin_1;pwd=tjnwoa1ips;data source=JukabankMOISES.mssql.somee.com;persist security info=False;initial catalog=JukabankMOISES";
+
+                cmd.Connection = conexao;
+                conexao.Open();
+
+
+                //limpando parametros
+                cmd.Parameters.Clear();
+
+
+                cmd.Parameters.AddWithValue("ContaId", UsuarioLogado.ContaLogada);
+
+
+
+
+                if (txtSenha.Text != UsuarioLogado.Senha)
                 {
 
-                    cmd.Parameters.AddWithValue("SaldoConta", item.SaldoDinheiro(Convert.ToDecimal(txtValorDeposito.Text)));
-                    MessageBox.Show(item.Saldo.ToString());
-                    lblSaldo.Text = item.Saldo.ToString();
-                    break;
+                    MessageBox.Show("Senha incorreta");
 
                 }
-
-                Int32 rowsAffected = cmd.ExecuteNonQuery();
-                conexao.Close();
-
-                if (Application.OpenForms.OfType<TelaSaque>().Any())
+                else
                 {
-                    foreach (System.Windows.Forms.Label label in Application.OpenForms["TelaDeposito"].Controls.OfType<System.Windows.Forms.Label>())
+
+                    foreach (var item in UsuarioLogado.Contas)
                     {
-                        if (label.Name == "lblSaldo")
+                        if (item.VerDinheiro(Convert.ToDecimal(txtValorDeposito.Text)))
                         {
-
-
-                            label.Text = this.lblSaldo.Text;
-
-
-
+                            MessageBox.Show("Não pode sacar mais do que tem");
+                            break;
 
                         }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("SaldoConta", item.SaldoDinheiro(Convert.ToDecimal(txtValorDeposito.Text)));
+                            MessageBox.Show(item.Saldo.ToString());
+                            lblSaldo.Text = item.Saldo.ToString();
+                            Int32 rowsAffected = cmd.ExecuteNonQuery();
+                            conexao.Close();
+                            break;
+                        }
+
+
                     }
 
 
 
-                }
-            }
+                    if (Application.OpenForms.OfType<TelaDeposito>().Any())
+                    {
+                        foreach (System.Windows.Forms.Label label in Application.OpenForms["TelaDeposito"].Controls.OfType<System.Windows.Forms.Label>())
+                        {
+                            if (label.Name == "lblSaldo")
+                            {
 
+
+                                label.Text = this.lblSaldo.Text;
+
+
+
+
+                            }
+                        }
+
+
+
+                    }
+
+                }
+            
+
+
+
+            }
         }
+
+        
     }
 }

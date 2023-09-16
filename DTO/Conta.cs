@@ -64,10 +64,26 @@ namespace pjrAtiv.Classes
 
         public decimal SaldoDinheiro(decimal ValorSaldo)
         {
+            
 
             this.Saldo -= ValorSaldo;
             return this.Saldo;
 
+
+
+        }
+        public bool VerDinheiro(decimal valor) 
+        {   
+            if(valor < this.Saldo) 
+            {
+                return false ;
+
+
+            }
+            else 
+            {
+                return true;
+            }
 
 
         }

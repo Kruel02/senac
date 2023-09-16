@@ -11,6 +11,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows;
 
 namespace pjrAtiv
 {
@@ -30,12 +31,16 @@ namespace pjrAtiv
         {
             foreach (var item in UsuarioLogado.Contas)
             {
+                if(item.IdConta == UsuarioLogado.ContaLogada) 
+                {
+                    lblSaldo.Text = item.Saldo.ToString();
+                    break;
 
-                lblSaldo.Text = item.Saldo.ToString();
-                break;
+                }
+               
 
             }
-
+         
         }
 
         private void lblValorDeposito_Click(object sender, EventArgs e)
@@ -114,6 +119,8 @@ namespace pjrAtiv
 
 
             }
+
+          
             if (Application.OpenForms.OfType<TelaSaque>().Any())
             {
                 foreach (System.Windows.Forms.Label label in Application.OpenForms["TelaSaque"].Controls.OfType<System.Windows.Forms.Label>())
@@ -125,7 +132,7 @@ namespace pjrAtiv
                         label.Text = this.lblSaldo.Text;
 
 
-
+                        
 
                     }
                 }

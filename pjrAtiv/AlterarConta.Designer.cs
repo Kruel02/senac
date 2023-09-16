@@ -31,6 +31,7 @@
             CBContas = new ComboBox();
             TxtSenha = new TextBox();
             BtnAtualizar = new Button();
+            LblSenha = new Label();
             SuspendLayout();
             // 
             // CBContas
@@ -49,7 +50,6 @@
             TxtSenha.Name = "TxtSenha";
             TxtSenha.Size = new Size(196, 23);
             TxtSenha.TabIndex = 1;
-            TxtSenha.Text = "Senha";
             // 
             // BtnAtualizar
             // 
@@ -61,11 +61,21 @@
             BtnAtualizar.UseVisualStyleBackColor = true;
             BtnAtualizar.Click += BtnAtualizar_Click;
             // 
+            // LblSenha
+            // 
+            LblSenha.AutoSize = true;
+            LblSenha.Location = new Point(56, 125);
+            LblSenha.Name = "LblSenha";
+            LblSenha.Size = new Size(39, 15);
+            LblSenha.TabIndex = 3;
+            LblSenha.Text = "Senha";
+            // 
             // AlterarConta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(304, 284);
+            Controls.Add(LblSenha);
             Controls.Add(BtnAtualizar);
             Controls.Add(TxtSenha);
             Controls.Add(CBContas);
@@ -81,5 +91,6 @@
         private ComboBox CBContas;
         private TextBox TxtSenha;
         private Button BtnAtualizar;
+        private Label LblSenha;
     }
 }

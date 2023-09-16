@@ -43,7 +43,8 @@ namespace pjrAtiv.Classes
             UsuarioLogado.Telefone = string.Empty;
             UsuarioLogado.RG = string.Empty;
             UsuarioLogado.CPF = string.Empty;
-            UsuarioLogado.ContaLogada = 0;           
+            UsuarioLogado.ContaLogada = 0;  
+            UsuarioLogado.Contas.Clear();
 
         }
        
