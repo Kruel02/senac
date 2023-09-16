@@ -164,7 +164,7 @@ namespace pjrAtiv
             nomeClienteToolStripMenuItem.Visible = false;
             iDContaToolStripMenuItem.Visible = false;
             iDContaToolStripMenuItem.Enabled = false;
-            
+            cadastroToolStripMenuItem.Enabled = true;
            
 
         }

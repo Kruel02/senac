@@ -40,13 +40,14 @@ namespace pjrAtiv
                 UsuarioLogado.ContaLogada = Convert.ToInt32(CBContas.Text);
                 Application.OpenForms["banco"].MainMenuStrip.Items["iDContaToolStripMenuItem"].Text = CBContas.Text;
                 MessageBox.Show("Conta Alterada");
+                this.Close();
             }
-            else 
+            else
             {
 
                 MessageBox.Show("Senha errada");
-            
-            
+
+
             }
         }
 

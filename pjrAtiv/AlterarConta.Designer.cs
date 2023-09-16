@@ -36,12 +36,12 @@
             // 
             // CBContas
             // 
+            CBContas.DropDownStyle = ComboBoxStyle.DropDownList;
             CBContas.FormattingEnabled = true;
             CBContas.Location = new Point(56, 84);
             CBContas.Name = "CBContas";
             CBContas.Size = new Size(196, 23);
             CBContas.TabIndex = 0;
-            CBContas.Text = "Contas";
             CBContas.SelectedIndexChanged += CBContas_SelectedIndexChanged;
             // 
             // TxtSenha
@@ -50,6 +50,7 @@
             TxtSenha.Name = "TxtSenha";
             TxtSenha.Size = new Size(196, 23);
             TxtSenha.TabIndex = 1;
+            TxtSenha.UseSystemPasswordChar = true;
             // 
             // BtnAtualizar
             // 

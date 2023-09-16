@@ -45,6 +45,7 @@
             TxtSalario.Name = "TxtSalario";
             TxtSalario.Size = new Size(100, 23);
             TxtSalario.TabIndex = 0;
+            TxtSalario.TextChanged += TxtSalario_TextChanged;
             // 
             // TxtSenha
             // 
@@ -52,6 +53,7 @@
             TxtSenha.Name = "TxtSenha";
             TxtSenha.Size = new Size(100, 23);
             TxtSenha.TabIndex = 1;
+            TxtSenha.UseSystemPasswordChar = true;
             TxtSenha.TextChanged += TxtSenha_TextChanged;
             // 
             // textBox1
@@ -60,6 +62,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 2;
+            textBox1.UseSystemPasswordChar = true;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // CBTipoConta

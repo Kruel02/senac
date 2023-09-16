@@ -87,11 +87,11 @@ namespace pjrAtiv
                     conexao.Open();
                     cliente.IdConta = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    MessageBox.Show(cliente.IdConta.ToString());
+                    MessageBox.Show(cliente.IdConta.ToString() + "Conta Criada com Sucesso");
 
 
                     conexao.Close();
-
+                    Application.OpenForms["banco"].MainMenuStrip.Items["iDContaToolStripMenuItem"].Text = cliente.IdConta.ToString();
                 }
                 else
                 {
@@ -127,6 +127,23 @@ namespace pjrAtiv
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxtSalario_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(TxtSalario.Text, out int Val) == false)
+            {
+                string input = TxtSalario.Text;
+                    
+
+                string numbersOnly = new string(input.Where(char.IsDigit).ToArray());
+
+                TxtSalario.Text = numbersOnly;
+
+                
+                TxtSalario.SelectionStart = TxtSalario.Text.Length;
+                
+            }
         }
     }
 }

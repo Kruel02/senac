@@ -140,11 +140,21 @@ namespace pjrAtiv
 
 
             }
+            else 
+            {
+                MessageBox.Show("Você não tem uma conta cadastrada, por favor, crie uma");
+                CadastrarConta = new CriarConta();
+                CadastrarConta.MdiParent = Application.OpenForms["banco"];
+                CadastrarConta.Show();
+            
+            
+            }
+
             conexao.Close();
             leitor.Close();
 
-
-
+                
+            
 
 
 
