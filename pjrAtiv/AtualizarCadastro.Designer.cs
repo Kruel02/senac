@@ -79,7 +79,7 @@
             TxtEmail.Name = "TxtEmail";
             TxtEmail.PlaceholderText = "Email";
             TxtEmail.Size = new Size(100, 23);
-            TxtEmail.TabIndex = 3;
+            TxtEmail.TabIndex = 4;
             // 
             // TxtTelefone
             // 
@@ -87,7 +87,7 @@
             TxtTelefone.Name = "TxtTelefone";
             TxtTelefone.PlaceholderText = "Telefone";
             TxtTelefone.Size = new Size(100, 23);
-            TxtTelefone.TabIndex = 4;
+            TxtTelefone.TabIndex = 5;
             // 
             // TxtRG
             // 
@@ -95,7 +95,7 @@
             TxtRG.Name = "TxtRG";
             TxtRG.PlaceholderText = "RG";
             TxtRG.Size = new Size(100, 23);
-            TxtRG.TabIndex = 5;
+            TxtRG.TabIndex = 6;
             TxtRG.TextChanged += TxtRG_TextChanged;
             // 
             // TxtCPF
@@ -104,7 +104,7 @@
             TxtCPF.Name = "TxtCPF";
             TxtCPF.PlaceholderText = "CPF";
             TxtCPF.Size = new Size(100, 23);
-            TxtCPF.TabIndex = 6;
+            TxtCPF.TabIndex = 7;
             TxtCPF.TextChanged += TxtCPF_TextChanged;
             // 
             // CBEstado
@@ -113,7 +113,7 @@
             CBEstado.Location = new Point(21, 219);
             CBEstado.Name = "CBEstado";
             CBEstado.Size = new Size(121, 23);
-            CBEstado.TabIndex = 7;
+            CBEstado.TabIndex = 3;
             CBEstado.Text = "Estado";
             // 
             // CBCivil

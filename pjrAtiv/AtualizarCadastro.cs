@@ -21,6 +21,13 @@ namespace pjrAtiv
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitializeComponent();
+            if(BtnAtualizar.TabIndex == 9) 
+            {
+
+                TxtNome.Focus();
+            
+            
+            } 
         }
 
         private void AtualizarCadastro_Load(object sender, EventArgs e)
@@ -125,7 +132,7 @@ namespace pjrAtiv
                 TxtCPF.Text = numbersOnly;
 
                 TxtCPF.SelectionStart = TxtCPF.Text.Length;
-                
+
             }
         }
 

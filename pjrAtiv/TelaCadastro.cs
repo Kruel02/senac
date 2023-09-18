@@ -31,6 +31,13 @@ namespace pjrAtiv
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitializeComponent();
+            if(BtnLimpar.TabIndex == 12) 
+            {
+                TxtNome.Focus();
+            
+            
+            
+            }
 
         }
 

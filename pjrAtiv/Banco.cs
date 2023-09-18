@@ -154,7 +154,7 @@ namespace pjrAtiv
             }
             else
             {
-                MessageBox.Show(rowsAffected.ToString() + UsuarioLogado.CPF);
+                MessageBox.Show(rowsAffected.ToString() + UsuarioLogado.Nome + "Deslogou");
             }
             conexao.Close();
             UsuarioLogado.Deslogar();

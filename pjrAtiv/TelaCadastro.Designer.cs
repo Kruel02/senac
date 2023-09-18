@@ -69,7 +69,7 @@
             TxtRG.Name = "TxtRG";
             TxtRG.PlaceholderText = "RG";
             TxtRG.Size = new Size(125, 23);
-            TxtRG.TabIndex = 1;
+            TxtRG.TabIndex = 3;
             TxtRG.TextChanged += TxtRG_TextChanged;
             // 
             // TxtCPF
@@ -78,7 +78,7 @@
             TxtCPF.Name = "TxtCPF";
             TxtCPF.PlaceholderText = "CPF";
             TxtCPF.Size = new Size(125, 23);
-            TxtCPF.TabIndex = 2;
+            TxtCPF.TabIndex = 4;
             TxtCPF.TextChanged += TxtCPF_TextChanged;
             // 
             // TxtEndereco
@@ -87,7 +87,7 @@
             TxtEndereco.Name = "TxtEndereco";
             TxtEndereco.PlaceholderText = "Endereço";
             TxtEndereco.Size = new Size(125, 23);
-            TxtEndereco.TabIndex = 3;
+            TxtEndereco.TabIndex = 5;
             // 
             // TxtTelefone
             // 
@@ -95,7 +95,7 @@
             TxtTelefone.Name = "TxtTelefone";
             TxtTelefone.PlaceholderText = "Telefone";
             TxtTelefone.Size = new Size(125, 23);
-            TxtTelefone.TabIndex = 4;
+            TxtTelefone.TabIndex = 7;
             TxtTelefone.TextChanged += TxtTelefone_TextChanged;
             // 
             // TxtEmail
@@ -104,7 +104,7 @@
             TxtEmail.Name = "TxtEmail";
             TxtEmail.PlaceholderText = "Email";
             TxtEmail.Size = new Size(128, 23);
-            TxtEmail.TabIndex = 5;
+            TxtEmail.TabIndex = 9;
             TxtEmail.TextChanged += TxtEmail_TextChanged;
             // 
             // TxtCidade
@@ -121,7 +121,7 @@
             TxtSenha.Name = "TxtSenha";
             TxtSenha.PlaceholderText = "Senha";
             TxtSenha.Size = new Size(128, 23);
-            TxtSenha.TabIndex = 7;
+            TxtSenha.TabIndex = 10;
             TxtSenha.UseSystemPasswordChar = true;
             TxtSenha.TextChanged += TxtSenha_TextChanged;
             // 
@@ -130,14 +130,14 @@
             DtNascimento.Location = new Point(12, 98);
             DtNascimento.Name = "DtNascimento";
             DtNascimento.Size = new Size(136, 23);
-            DtNascimento.TabIndex = 9;
+            DtNascimento.TabIndex = 1;
             // 
             // BtnCadastrar
             // 
             BtnCadastrar.Location = new Point(212, 251);
             BtnCadastrar.Name = "BtnCadastrar";
             BtnCadastrar.Size = new Size(75, 23);
-            BtnCadastrar.TabIndex = 10;
+            BtnCadastrar.TabIndex = 11;
             BtnCadastrar.Text = "Cadastrar";
             BtnCadastrar.UseVisualStyleBackColor = true;
             BtnCadastrar.Click += BtnCadastrar_Click;
@@ -147,7 +147,7 @@
             BtnLimpar.Location = new Point(212, 296);
             BtnLimpar.Name = "BtnLimpar";
             BtnLimpar.Size = new Size(75, 23);
-            BtnLimpar.TabIndex = 11;
+            BtnLimpar.TabIndex = 12;
             BtnLimpar.Text = "Limpar";
             BtnLimpar.UseVisualStyleBackColor = true;
             BtnLimpar.Click += BtnLimpar_Click;
@@ -159,7 +159,7 @@
             CbEstadoCivil.Location = new Point(12, 150);
             CbEstadoCivil.Name = "CbEstadoCivil";
             CbEstadoCivil.Size = new Size(125, 23);
-            CbEstadoCivil.TabIndex = 12;
+            CbEstadoCivil.TabIndex = 2;
             CbEstadoCivil.Text = "Estado Civil";
             CbEstadoCivil.SelectedIndexChanged += CbEstadoCivil_SelectedIndexChanged;
             // 
@@ -170,7 +170,7 @@
             CbEstado.Location = new Point(209, 98);
             CbEstado.Name = "CbEstado";
             CbEstado.Size = new Size(125, 23);
-            CbEstado.TabIndex = 13;
+            CbEstado.TabIndex = 8;
             CbEstado.Text = "Estado";
             // 
             // LblNome

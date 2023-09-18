@@ -28,7 +28,12 @@ namespace pjrAtiv
 
             CBTipoConta.Text = "Correntista";
             TxtSalario.Text = 10000.ToString();
-
+            if(BtnCadastrar.TabIndex == 4) 
+            {
+                CBTipoConta.Focus();
+            
+            
+            }
 
 
 
@@ -132,23 +137,23 @@ namespace pjrAtiv
 
         private void TxtSalario_TextChanged(object sender, EventArgs e)
         {
-            
-                string value = TxtSalario.Text.Replace(",", "")
-      .Replace("$", "").Replace(".", "").TrimStart('0');
-                decimal ul;
-                // Verifica se estamos lidando com um número válido
-                if (decimal.TryParse(value, out ul))
-                {
-                    ul /= 100;
-                    // Desinscreve o evento para evitar um loop
-                    TxtSalario.TextChanged -= TxtSalario_TextChanged;
-                    // Formata o texto como moeda
-                    TxtSalario.Text = string.Format(CultureInfo.CreateSpecificCulture("pt-BR"), "{0:N2}", ul);
-                    TxtSalario.TextChanged += TxtSalario_TextChanged;
-                    TxtSalario.Select(TxtSalario.Text.Length, 0);
-                
 
-                 }
+            string value = TxtSalario.Text.Replace(",", "")
+  .Replace("$", "").Replace(".", "").TrimStart('0');
+            decimal ul;
+            // Verifica se estamos lidando com um número válido
+            if (decimal.TryParse(value, out ul))
+            {
+                ul /= 100;
+                // Desinscreve o evento para evitar um loop
+                TxtSalario.TextChanged -= TxtSalario_TextChanged;
+                // Formata o texto como moeda
+                TxtSalario.Text = string.Format(CultureInfo.CreateSpecificCulture("pt-BR"), "{0:N2}", ul);
+                TxtSalario.TextChanged += TxtSalario_TextChanged;
+                TxtSalario.Select(TxtSalario.Text.Length, 0);
+
+
+            }
         }
     }
 }

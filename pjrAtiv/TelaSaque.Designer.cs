@@ -45,7 +45,7 @@
             btnVoltarSaque.Location = new Point(293, 388);
             btnVoltarSaque.Name = "btnVoltarSaque";
             btnVoltarSaque.Size = new Size(75, 23);
-            btnVoltarSaque.TabIndex = 21;
+            btnVoltarSaque.TabIndex = 3;
             btnVoltarSaque.Text = "Fechar";
             btnVoltarSaque.UseVisualStyleBackColor = true;
             btnVoltarSaque.Click += btnVoltarSaque_Click;
@@ -65,7 +65,7 @@
             btnConfirmacao.Location = new Point(177, 242);
             btnConfirmacao.Name = "btnConfirmacao";
             btnConfirmacao.Size = new Size(191, 23);
-            btnConfirmacao.TabIndex = 19;
+            btnConfirmacao.TabIndex = 2;
             btnConfirmacao.Text = "Confirmar Saque  ";
             btnConfirmacao.UseVisualStyleBackColor = true;
             btnConfirmacao.Click += btnConfirmacao_Click;
@@ -75,7 +75,7 @@
             txtSenha.Location = new Point(177, 192);
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(191, 23);
-            txtSenha.TabIndex = 18;
+            txtSenha.TabIndex = 1;
             txtSenha.UseSystemPasswordChar = true;
             // 
             // txtValorDeposito
@@ -84,7 +84,7 @@
             txtValorDeposito.MaxLength = 12;
             txtValorDeposito.Name = "txtValorDeposito";
             txtValorDeposito.Size = new Size(191, 23);
-            txtValorDeposito.TabIndex = 17;
+            txtValorDeposito.TabIndex = 0;
             txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
             // 
             // lblinsiraValor

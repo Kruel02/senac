@@ -45,7 +45,7 @@
             TxtSalario.MaxLength = 12;
             TxtSalario.Name = "TxtSalario";
             TxtSalario.Size = new Size(100, 23);
-            TxtSalario.TabIndex = 0;
+            TxtSalario.TabIndex = 1;
             TxtSalario.TextChanged += TxtSalario_TextChanged;
             // 
             // TxtSenha
@@ -53,7 +53,7 @@
             TxtSenha.Location = new Point(45, 146);
             TxtSenha.Name = "TxtSenha";
             TxtSenha.Size = new Size(100, 23);
-            TxtSenha.TabIndex = 1;
+            TxtSenha.TabIndex = 2;
             TxtSenha.UseSystemPasswordChar = true;
             TxtSenha.TextChanged += TxtSenha_TextChanged;
             // 
@@ -62,7 +62,7 @@
             textBox1.Location = new Point(45, 187);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
+            textBox1.TabIndex = 3;
             textBox1.UseSystemPasswordChar = true;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -73,7 +73,7 @@
             CBTipoConta.Location = new Point(45, 54);
             CBTipoConta.Name = "CBTipoConta";
             CBTipoConta.Size = new Size(100, 23);
-            CBTipoConta.TabIndex = 3;
+            CBTipoConta.TabIndex = 0;
             CBTipoConta.Text = "Tipo de Conta";
             // 
             // BtnCadastrar

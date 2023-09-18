@@ -19,6 +19,12 @@ namespace pjrAtiv
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitializeComponent();
+            if(BtnAtualizar.TabIndex == 2 ) 
+            {
+                CBContas.Focus();
+            
+            
+            }
         }
 
         private void AlterarConta_Load(object sender, EventArgs e)

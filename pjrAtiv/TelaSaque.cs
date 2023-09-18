@@ -23,7 +23,12 @@ namespace pjrAtiv
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             InitializeComponent();
-
+            if(btnVoltarSaque.TabIndex == 3) 
+            {
+                txtValorDeposito.Focus();
+            
+            
+            }
         }
 
         private void btnVoltarSaque_Click(object sender, EventArgs e)
@@ -41,24 +46,24 @@ namespace pjrAtiv
 
         private void txtValorDeposito_TextChanged(object sender, EventArgs e)
         {
-            
-                string value = txtValorDeposito.Text.Replace(",", "")
-      .Replace("$", "").Replace(".", "").TrimStart('0');
-                decimal ul;
-                // Verifica se estamos lidando com um número válido
-                if (decimal.TryParse(value, out ul))
-                {
-                    ul /= 100;
-                    // Desinscreve o evento para evitar um loop
-                    txtValorDeposito.TextChanged -= txtValorDeposito_TextChanged;
-                    // Formata o texto como moeda
-                    txtValorDeposito.Text = string.Format(CultureInfo.CreateSpecificCulture("pt-BR"), "{0:N2}", ul);
-                    txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
-                    txtValorDeposito.Select(txtValorDeposito.Text.Length, 0);
-                }
+
+            string value = txtValorDeposito.Text.Replace(",", "")
+  .Replace("$", "").Replace(".", "").TrimStart('0');
+            decimal ul;
+            // Verifica se estamos lidando com um número válido
+            if (decimal.TryParse(value, out ul))
+            {
+                ul /= 100;
+                // Desinscreve o evento para evitar um loop
+                txtValorDeposito.TextChanged -= txtValorDeposito_TextChanged;
+                // Formata o texto como moeda
+                txtValorDeposito.Text = string.Format(CultureInfo.CreateSpecificCulture("pt-BR"), "{0:N2}", ul);
+                txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
+                txtValorDeposito.Select(txtValorDeposito.Text.Length, 0);
+            }
 
         }
-        
+
 
         private void TelaSaque_Load(object sender, EventArgs e)
         {

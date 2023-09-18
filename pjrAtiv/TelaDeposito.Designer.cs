@@ -86,7 +86,7 @@
             txtValorDeposito.MaxLength = 12;
             txtValorDeposito.Name = "txtValorDeposito";
             txtValorDeposito.Size = new Size(191, 23);
-            txtValorDeposito.TabIndex = 8;
+            txtValorDeposito.TabIndex = 0;
             txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
             // 
             // txtSenha
@@ -94,7 +94,7 @@
             txtSenha.Location = new Point(157, 176);
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(191, 23);
-            txtSenha.TabIndex = 9;
+            txtSenha.TabIndex = 1;
             txtSenha.UseSystemPasswordChar = true;
             // 
             // btnConfirmacao
@@ -102,7 +102,7 @@
             btnConfirmacao.Location = new Point(157, 226);
             btnConfirmacao.Name = "btnConfirmacao";
             btnConfirmacao.Size = new Size(191, 23);
-            btnConfirmacao.TabIndex = 10;
+            btnConfirmacao.TabIndex = 2;
             btnConfirmacao.Text = "Confirmar Depósito ";
             btnConfirmacao.UseVisualStyleBackColor = true;
             btnConfirmacao.Click += button1_Click;
@@ -122,7 +122,7 @@
             btnVoltarDeposito.Location = new Point(273, 316);
             btnVoltarDeposito.Name = "btnVoltarDeposito";
             btnVoltarDeposito.Size = new Size(75, 23);
-            btnVoltarDeposito.TabIndex = 12;
+            btnVoltarDeposito.TabIndex = 3;
             btnVoltarDeposito.Text = "Fechar";
             btnVoltarDeposito.UseVisualStyleBackColor = true;
             btnVoltarDeposito.Click += btnVoltarDeposito_Click;

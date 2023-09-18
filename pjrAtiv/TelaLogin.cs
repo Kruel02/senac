@@ -31,6 +31,13 @@ namespace pjrAtiv
             this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitializeComponent();
+            if(Btn_Login.TabIndex == 2) 
+            {
+                TxtNome.Focus();
+            
+            
+            
+            }
         }
 
 

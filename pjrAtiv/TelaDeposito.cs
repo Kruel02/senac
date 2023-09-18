@@ -25,12 +25,19 @@ namespace pjrAtiv
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             InitializeComponent();
+            if(btnVoltarDeposito.TabIndex == 3) 
+            {
+                txtValorDeposito.Focus();
+            
+            
+            
+            }
         }
         private string _laststring;
 
         private void TelaDeposito_Load(object sender, EventArgs e)
         {
-            
+
 
             foreach (var item in UsuarioLogado.Contas)
             {
