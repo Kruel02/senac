@@ -89,7 +89,7 @@ namespace pjrAtiv
                 UsuarioLogado.UltimoLogin = leitor.GetDateTime(13);
 
 
-                MessageBox.Show("bem vindo" + "" + leitor.GetString(1) + UsuarioLogado.CPF + UsuarioLogado.ContaLogada.ToString());
+                MessageBox.Show(string.Format ("bem vindo" + "" + leitor.GetString(1) + UsuarioLogado.CPF));
 
                 Application.OpenForms["banco"].MainMenuStrip.Items["operaçõesToolStripMenuItem"].Enabled = true;
                 Application.OpenForms["banco"].MainMenuStrip.Items["nomeClienteToolStripMenuItem"].Visible = true;

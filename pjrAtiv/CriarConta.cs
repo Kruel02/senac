@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
+using System.Globalization;
 
 namespace pjrAtiv
 {
@@ -131,19 +132,23 @@ namespace pjrAtiv
 
         private void TxtSalario_TextChanged(object sender, EventArgs e)
         {
-            if (int.TryParse(TxtSalario.Text, out int Val) == false)
-            {
-                string input = TxtSalario.Text;
-                    
-
-                string numbersOnly = new string(input.Where(char.IsDigit).ToArray());
-
-                TxtSalario.Text = numbersOnly;
-
+            
+                string value = TxtSalario.Text.Replace(",", "")
+      .Replace("$", "").Replace(".", "").TrimStart('0');
+                decimal ul;
+                // Verifica se estamos lidando com um número válido
+                if (decimal.TryParse(value, out ul))
+                {
+                    ul /= 100;
+                    // Desinscreve o evento para evitar um loop
+                    TxtSalario.TextChanged -= TxtSalario_TextChanged;
+                    // Formata o texto como moeda
+                    TxtSalario.Text = string.Format(CultureInfo.CreateSpecificCulture("pt-BR"), "{0:N2}", ul);
+                    TxtSalario.TextChanged += TxtSalario_TextChanged;
+                    TxtSalario.Select(TxtSalario.Text.Length, 0);
                 
-                TxtSalario.SelectionStart = TxtSalario.Text.Length;
-                
-            }
+
+                 }
         }
     }
 }

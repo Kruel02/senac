@@ -81,6 +81,7 @@
             // txtValorDeposito
             // 
             txtValorDeposito.Location = new Point(177, 150);
+            txtValorDeposito.MaxLength = 12;
             txtValorDeposito.Name = "txtValorDeposito";
             txtValorDeposito.Size = new Size(191, 23);
             txtValorDeposito.TabIndex = 17;

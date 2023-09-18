@@ -165,7 +165,7 @@ namespace pjrAtiv
             iDContaToolStripMenuItem.Visible = false;
             iDContaToolStripMenuItem.Enabled = false;
             cadastroToolStripMenuItem.Enabled = true;
-           
+            fecharjanelas();
 
         }
 
@@ -325,6 +325,7 @@ namespace pjrAtiv
                 
 
 
+
             
 
            
@@ -353,6 +354,51 @@ namespace pjrAtiv
 
         private void AlterarConta(object sender, ToolStripItemClickedEventArgs e)
         {
+
+        }
+
+        public void fecharjanelas() 
+        {
+           
+            if (Application.OpenForms.OfType<TelaDeposito>().Any())
+            {
+
+                Application.OpenForms.OfType<TelaDeposito>().First().Close();
+
+
+            }
+
+            if (Application.OpenForms.OfType<TelaSaque>().Any())
+            {
+
+                Application.OpenForms.OfType<TelaSaque>().First().Close();
+
+
+            }
+
+            if (Application.OpenForms.OfType<CriarConta>().Any())
+            {
+
+                Application.OpenForms.OfType<CriarConta>().First().Close();
+
+
+            }
+            if (Application.OpenForms.OfType<AtualizarCadastro>().Any())
+            {
+
+                Application.OpenForms.OfType<AtualizarCadastro>().First().Close();
+
+
+            }
+            if (Application.OpenForms.OfType<AlterarConta>().Any())
+            {
+
+                Application.OpenForms.OfType<AlterarConta>().First().Close();
+
+
+            }
+
+
 
         }
     }

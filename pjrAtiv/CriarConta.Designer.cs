@@ -42,6 +42,7 @@
             // TxtSalario
             // 
             TxtSalario.Location = new Point(45, 99);
+            TxtSalario.MaxLength = 12;
             TxtSalario.Name = "TxtSalario";
             TxtSalario.Size = new Size(100, 23);
             TxtSalario.TabIndex = 0;
