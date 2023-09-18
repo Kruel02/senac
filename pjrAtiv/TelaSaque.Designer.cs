@@ -94,6 +94,7 @@
             lblinsiraValor.Size = new Size(169, 15);
             lblinsiraValor.TabIndex = 16;
             lblinsiraValor.Text = "Insira o valor que deseja sacar :";
+            lblinsiraValor.Click += lblinsiraValor_Click;
             // 
             // lblSaque
             // 

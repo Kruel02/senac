@@ -135,7 +135,7 @@ namespace pjrAtiv
                 UsuarioLogado.ContaLogada = UsuarioLogado.Contas[0].IdConta;
                 Application.OpenForms["banco"].MainMenuStrip.Items[3].Visible = true;
                 Application.OpenForms["banco"].MainMenuStrip.Items[3].Text = UsuarioLogado.ContaLogada.ToString();
-                Application.OpenForms["banco"].MainMenuStrip.Items[3].Enabled = true;
+                Application.OpenForms["banco"].MainMenuStrip.Items[3].Enabled = false;
 
 
 

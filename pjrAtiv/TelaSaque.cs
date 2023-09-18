@@ -44,7 +44,7 @@ namespace pjrAtiv
             {
                 string input = txtValorDeposito.Text;
 
-                string numbersOnly = new string(input.Where(char.IsDigit).ToArray()); 
+                string numbersOnly = new string(input.Where(char.IsDigit).ToArray());
 
                 txtValorDeposito.Text = numbersOnly;
 
@@ -55,12 +55,13 @@ namespace pjrAtiv
 
         private void TelaSaque_Load(object sender, EventArgs e)
         {
+
             foreach (var item in UsuarioLogado.Contas)
             {
                 if (item.IdConta == UsuarioLogado.ContaLogada)
                 {
                     lblSaldo.Text = item.Saldo.ToString();
-                    break;
+                    
 
                 }
 
@@ -71,10 +72,10 @@ namespace pjrAtiv
 
         private void btnConfirmacao_Click(object sender, EventArgs e)
         {
-            if(txtValorDeposito.Text == string.Empty || txtSenha.Text == string.Empty) 
+            if (txtValorDeposito.Text == string.Empty || txtSenha.Text == string.Empty)
             {
                 MessageBox.Show("Insira um valor");
-            
+
             }
             else
             {
@@ -150,13 +151,16 @@ namespace pjrAtiv
                     }
 
                 }
-            
+
 
 
 
             }
         }
 
-        
+        private void lblinsiraValor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

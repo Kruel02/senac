@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
+using System.Globalization;
 
 namespace pjrAtiv
 {
@@ -29,18 +30,21 @@ namespace pjrAtiv
 
         private void TelaDeposito_Load(object sender, EventArgs e)
         {
+            
+
             foreach (var item in UsuarioLogado.Contas)
             {
-                if(item.IdConta == UsuarioLogado.ContaLogada) 
+                if (item.IdConta == UsuarioLogado.ContaLogada)
                 {
                     lblSaldo.Text = item.Saldo.ToString();
                     break;
 
                 }
-               
+
 
             }
-         
+
+
         }
 
         private void lblValorDeposito_Click(object sender, EventArgs e)
@@ -108,19 +112,34 @@ namespace pjrAtiv
                 foreach (var item in UsuarioLogado.Contas)
                 {
 
-                    cmd.Parameters.AddWithValue("SaldoConta", item.Depositar(Convert.ToDecimal(txtValorDeposito.Text)));
-                    MessageBox.Show(item.Saldo.ToString());
-                    lblSaldo.Text = item.Saldo.ToString();
-                    break;
+                    decimal valorDeposito;
+                    if (decimal.TryParse(txtValorDeposito.Text,
+                                         NumberStyles.Currency,
+                                         CultureInfo.CurrentCulture,
+                                         out valorDeposito))
+
+                    {
+                        cmd.Parameters.AddWithValue("SaldoConta", item.Depositar(Convert.ToDecimal(txtValorDeposito.Text)));
+                        MessageBox.Show(item.Saldo.ToString());
+                        lblSaldo.Text = item.Saldo.ToString();
+                        Int32 rowsAffected = cmd.ExecuteNonQuery();
+                        conexao.Close();
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Valor de depósito inválido.");
+                        break;
+                    }
+
 
                 }
 
-                Int32 rowsAffected = cmd.ExecuteNonQuery();
 
 
             }
 
-          
+
             if (Application.OpenForms.OfType<TelaSaque>().Any())
             {
                 foreach (System.Windows.Forms.Label label in Application.OpenForms["TelaSaque"].Controls.OfType<System.Windows.Forms.Label>())
@@ -132,16 +151,15 @@ namespace pjrAtiv
                         label.Text = this.lblSaldo.Text;
 
 
-                        
+
 
                     }
                 }
-                
+
 
 
             }
 
-            conexao.Close();
 
 
 
@@ -155,21 +173,36 @@ namespace pjrAtiv
 
         private void txtValorDeposito_TextChanged(object sender, EventArgs e)
         {
-
-
-            if (int.TryParse(txtValorDeposito.Text, out int Val) == false)
+            string value = txtValorDeposito.Text.Replace(",", "")
+        .Replace("$", "").Replace(".", "").TrimStart('0');
+            decimal ul;
+            // Verifica se estamos lidando com um número válido
+            if (decimal.TryParse(value, out ul))
             {
-                string input = txtValorDeposito.Text;
-
-                string numbersOnly = new string(input.Where(char.IsDigit).ToArray());
-
-                txtValorDeposito.Text = numbersOnly;
-
-                txtValorDeposito.SelectionStart = txtValorDeposito.Text.Length;
-
+                ul /= 100;
+                // Desinscreve o evento para evitar um loop
+                txtValorDeposito.TextChanged -= txtValorDeposito_TextChanged;
+                // Formata o texto como moeda
+                txtValorDeposito.Text = string.Format(CultureInfo.CreateSpecificCulture("pt-BR"), "{0:N2}", ul);
+                txtValorDeposito.TextChanged += txtValorDeposito_TextChanged;
+                txtValorDeposito.Select(txtValorDeposito.Text.Length, 0);
             }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         }
     }
 }
+
+
